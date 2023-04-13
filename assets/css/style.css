@@ -30,7 +30,7 @@ p {
     text-align: center;
 }
 
-#start {
+#start, #back {
   
     padding: 7px 12px 7px 12px;
     font-size: 15px;
@@ -48,4 +48,9 @@ p {
     margin-top: 40px;
 
    
+}
+
+
+#highscorePage {
+    display: none;
 }

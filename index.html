@@ -12,11 +12,11 @@
 <body>
 
     <header>
-        <button id="highscores">View highscores</button>
+        <button onclick="theScores()" id="highscores">View highscores</button>
         <h1>Time: <span id="timer">0</span></h1>
     </header>
 
-    <section id="wrapper">
+    <section id="frontPage">
         <h2>Coding Quiz Challenge</h2>
 
         <p>Correctly answer the given questions as fast as possible.</p>
@@ -27,7 +27,19 @@
         
     </section>
 
+    <section id="highscorePage">
+        <h2>High Scores</h2>
 
+        <button onclick="theFront()" id="back">Back</button>
+
+    </section>
+
+    <section id="questionsPage">
+        
+
+    </section>
+
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>
