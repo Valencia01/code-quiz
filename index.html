@@ -11,10 +11,14 @@
 
 <body>
 
+    <!-- This adds the button at the top right and a Timer on the top right -->
+
     <header>
         <button onclick="theScores()" id="highscores">View highscores</button>
         <h1>Time: <span id="timer">0</span></h1>
     </header>
+
+    <!-- This is the front page and has the start button in view -->
 
     <section id="frontPage">
         <h2>Coding Quiz Challenge</h2>
@@ -22,11 +26,12 @@
         <p>Correctly answer the given questions as fast as possible.</p>
         <p>Keep in mind that every wrong answer will result in reduced score and remaining time.</p>
 
-       
-        <button id="start">Start Quiz</button>
+       <!-- This is the start button it calls the questions function on click -->
+        <button onclick="theQuestions()" id="start">Start Quiz</button>
         
     </section>
 
+    <!-- This will hold the high scores that the user inputs after they complete the quiz -->
     <section id="highscorePage">
         <h2>High Scores</h2>
 
@@ -34,10 +39,32 @@
 
     </section>
 
+    <!-- This displays the Questions and four possible answers below it-->
     <section id="questionsPage">
-        
+        <h2 id="questionPlace"></h2>
+
+
+        <ul>
+            <li><button onclick="showWrong()" id="one"></button></li>
+            <li><button onclick="showWrong()" id="two"></button></li>
+            <li><button onclick="showCorrect()" id="three"></button></li>
+            <li><button onclick="showWrong() /*getChoice(this.id)*/" id="four"></button></li>
+        </ul>
+
 
     </section>
+
+    <!-- This is the end screen after the timer has run out -->
+    <section id="scorePage">
+        <h2>Your Score</h2>
+
+        <button onclick="theFront()" id="back">Back</button>
+    </section>
+
+    <!-- This tells the user if their choice was correct or not -->
+    <footer>
+        <h3 id="choiceResult"></h3>
+    </footer>
 
     <script src="assets/js/script.js"></script>
 </body>

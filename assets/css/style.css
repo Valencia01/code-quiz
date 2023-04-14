@@ -1,7 +1,9 @@
+/*Adds the font*/
 html {
     font-family: 'Roboto', sans-serif;
 }
 
+/* This formats the high scores button at the top right */
 #highscores {
     background: none;
     border: none;
@@ -11,6 +13,7 @@ html {
     margin-top: 10px;
 }
 
+/* This formats the timer */
 h1 {
     float: right;
     margin-top: 10px;
@@ -19,17 +22,30 @@ h1 {
     font-weight: lighter;
 }
 
+/* This formats every main header other than the question */
 h2 {
+
     text-align: center;
+    text-indent: 0;
     font-size: 35px;
     margin-top: 90px;
 
 }
 
+/* This formats the question header */
+#questionPlace {
+    text-align: left;
+    text-indent: 20%;
+    font-size: 35px;
+    margin-top: 90px;
+}
+
+/* This aligns the sentences on the starter screen */
 p {
     text-align: center;
 }
 
+/* This formats both the start and back button */
 #start, #back {
   
     padding: 7px 12px 7px 12px;
@@ -50,7 +66,51 @@ p {
    
 }
 
+/* This aligns the unordered list */
+ul {
+  
+    list-style-type: none;
+    text-align: left;
+    text-indent: 20%;
+}
 
+/* This formats the buttons */
+li button{
+
+    list-style-type: none;
+    padding: 7px 30px 7px 12px;
+    font-size: 20px;
+    border-style: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px auto;
+
+    color: white;
+    background-color:rgb(38, 12, 82);
+    display: inline
+    
+
+}
+
+/* This formats the "Wrong" and "Correct" header */
+h3 {
+    text-align: left;
+    text-indent: 20%;
+    font-size: 20px;
+    
+}
+
+
+
+/* These three make sure they are not visible on the screen in the beginning */
 #highscorePage {
+    display: none;
+}
+
+#questionsPage {
+    display: none;
+}
+
+#scorePage {
     display: none;
 }
