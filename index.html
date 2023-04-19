@@ -43,7 +43,6 @@
     <section id="questionsPage">
         <h2 id="questionPlace"></h2>
 
-
         <ul>
             <li><button onclick="getChoice(event)" id="one"></button></li>
             <li><button onclick="getChoice(event)" id="two"></button></li>
@@ -51,14 +50,14 @@
             <li><button onclick="getChoice(event)" id="four"></button></li>
         </ul>
 
-
     </section>
 
     <!-- This is the end screen after the timer has run out -->
     <section id="scorePage">
         <h2>Your Score</h2>
-
-        <input id="userInput"><button onclick="saveHighscore()">Submit</button>
+        <div id="initalsInput">
+            <input id="userInput" type="text" placeholder="Enter your initals"><button onclick="saveHighscore()">Submit</button>
+        </div>
 
         <button onclick="theFront()" id="back">Back</button>
     </section>

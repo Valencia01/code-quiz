@@ -40,9 +40,14 @@ var questions = [
     correct: "boolean"
   },
   {
-    question: "Inside which HTML element do we put the JavaScript?",
-    answers: ["<javascript>", "<js>", "<scripting>", "<script>"],
-    correct: "<script>"
+    question: "How do you get the length of this array? intArray = []",
+    answers: ["Array.length", "intArray[] length = x;", "length = x;", "intArray.length"],
+    correct: "intArray.length"
+  },
+  {
+    question: "How do you find the largest number of 2 and 4?",
+    answers: ["Math.ceil(2,4)", "Math.max(2,4)", "ceil(2,4)", "top(2,4)"],
+    correct: "Math.max(2,4)"
   },
 ]
 
@@ -55,6 +60,7 @@ function theScores() {
     highscorePage.style.display = "block";
     questionsPage.style.display = "none";
     choiceResult.style.display = "none";
+    scorePage.style.display = "none";
 
     clearInterval(timer);
 }
@@ -96,6 +102,9 @@ function saveHighscore() {
   }
   scoreInitals.push(userObject);
   localStorage.setItem("score", JSON.stringify(scoreInitals));
+
+  theScores();
+
 }
 
 //This gets user input and compare it to the correct answer
@@ -124,7 +133,14 @@ function showCorrect() {
 function showWrong() {
   choiceResult.innerText = "Wrong";
   x++;
-  timerCount = timerCount - 5;
+  //This penalizes the user by 10 points/seconds for a wrong answer
+  timerCount = timerCount - 10;
+
+  if (timerCount <= 0) {
+
+    timerCount = 1;
+    
+  }
 
   theQuestions();
 }

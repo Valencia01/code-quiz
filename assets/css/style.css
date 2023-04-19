@@ -70,8 +70,9 @@ p {
 ul {
   
     list-style-type: none;
-    text-align: center;
-    text-indent: -30%;
+    text-align: left;
+    text-indent: 17%;
+    
 }
 
 /* This formats the buttons */
@@ -91,6 +92,8 @@ li button{
 
     height: 50px;
     width: 300px;
+
+    text-align: left;
     
 
 }
@@ -101,6 +104,10 @@ h3 {
     text-indent: 20%;
     font-size: 20px;
     
+}
+
+#initalsInput {
+    text-align: center;
 }
 
 
