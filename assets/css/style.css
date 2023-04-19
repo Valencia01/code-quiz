@@ -34,8 +34,8 @@ h2 {
 
 /* This formats the question header */
 #questionPlace {
-    text-align: left;
-    text-indent: 20%;
+    text-align: center;
+    
     font-size: 35px;
     margin-top: 90px;
 }
@@ -70,8 +70,8 @@ p {
 ul {
   
     list-style-type: none;
-    text-align: left;
-    text-indent: 20%;
+    text-align: center;
+    text-indent: -30%;
 }
 
 /* This formats the buttons */
@@ -87,7 +87,10 @@ li button{
 
     color: white;
     background-color:rgb(38, 12, 82);
-    display: inline
+    display: inline;
+
+    height: 50px;
+    width: 300px;
     
 
 }

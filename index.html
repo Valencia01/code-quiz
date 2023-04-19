@@ -15,7 +15,7 @@
 
     <header>
         <button onclick="theScores()" id="highscores">View highscores</button>
-        <h1>Time: <span id="timer">0</span></h1>
+        <h1>Time: <span id="timer">100</span></h1>
     </header>
 
     <!-- This is the front page and has the start button in view -->
@@ -27,7 +27,7 @@
         <p>Keep in mind that every wrong answer will result in reduced score and remaining time.</p>
 
        <!-- This is the start button it calls the questions function on click -->
-        <button onclick="theQuestions()" id="start">Start Quiz</button>
+        <button onclick="startBtn()" id="start">Start Quiz</button>
         
     </section>
 
@@ -45,10 +45,10 @@
 
 
         <ul>
-            <li><button onclick="showWrong()" id="one"></button></li>
-            <li><button onclick="showWrong()" id="two"></button></li>
-            <li><button onclick="showCorrect()" id="three"></button></li>
-            <li><button onclick="showWrong() /*getChoice(this.id)*/" id="four"></button></li>
+            <li><button onclick="getChoice(event)" id="one"></button></li>
+            <li><button onclick="getChoice(event)" id="two"></button></li>
+            <li><button onclick="getChoice(event)" id="three"></button></li>
+            <li><button onclick="getChoice(event)" id="four"></button></li>
         </ul>
 
 
@@ -57,6 +57,8 @@
     <!-- This is the end screen after the timer has run out -->
     <section id="scorePage">
         <h2>Your Score</h2>
+
+        <input id="userInput"><button onclick="saveHighscore()">Submit</button>
 
         <button onclick="theFront()" id="back">Back</button>
     </section>

@@ -14,10 +14,39 @@ var four = document.getElementById("four");
 
 //These are both the timer and choice by the user 
 var choiceResult = document.getElementById("choiceResult");
-var timerElement = document.querySelector("timer");
+var timerElement = document.querySelector("#timer");
 
 //Global variable
 var x = 0;
+var timerCount = 0;
+
+var scoreInitals = JSON.parse(localStorage.getItem("initals")) || [];
+
+//An array of every question with their answers
+var questions = [
+  {
+    question: "Commonly used datatypes do NOT include:",
+    answers: ["strings", "booleans", "alerts", "numbers"],
+    correct: "alerts"
+  },
+  {
+    question: "A sequence of steps that must be taken to perform a task is called a(n):",
+    answers: ["function", "machine learning", "classes", "algorithm"],
+    correct: "algorithm"
+  },
+  {
+    question: "Which of the following variable types can hold a value of either true or false?",
+    answers: ["function", "boolean", "classes", "variable"],
+    correct: "boolean"
+  },
+  {
+    question: "Inside which HTML element do we put the JavaScript?",
+    answers: ["<javascript>", "<js>", "<scripting>", "<script>"],
+    correct: "<script>"
+  },
+]
+
+
 
 //This shows the scores page and hides everything else
 function theScores() {
@@ -26,6 +55,8 @@ function theScores() {
     highscorePage.style.display = "block";
     questionsPage.style.display = "none";
     choiceResult.style.display = "none";
+
+    clearInterval(timer);
 }
 
 //This shows the front page and hides everything else
@@ -34,38 +65,15 @@ function theFront() {
     highscorePage.style.display = "none";
     frontPage.style.display = "block";
     choiceResult.style.display = "none";
+    scorePage.style.display = "none";
 }
 
 //This shows the questions page and hides everything else
 function theQuestions() {
+
     frontPage.style.display = "none";
     questionsPage.style.display = "block";
-
-    timerCount = 75;
-
-    //This array holds the questions and answers along with the correct answer
-    var questions = [
-        {
-          question: "Commonly used datatypes do NOT include:",
-          answers: ["strings", "booleans", "alerts", "numbers"],
-          correct: "alerts"
-        },
-        {
-          question: "A sequence of steps that must be taken to perform a task is called a(n):",
-          answers: ["function", "machine learning", "classes", "algorithm"],
-          correct: "algorithm"
-        },
-        {
-          question: "Which of the following variable types can hold a value of either true or false?",
-          answers: ["function", "boolean", "classes", "variable"],
-          correct: "boolean"
-        },
-        {
-          question: "Inside which HTML element do we put the JavaScript?",
-          answers: ["<javascript>", "<js>", "<scripting>", "<script>"],
-          correct: "<script>"
-        },
-      ]
+    
 
     //This replaces all the header and list with the question depending on the index given
     questionPlace.innerText = questions[x].question;
@@ -75,21 +83,32 @@ function theQuestions() {
     three.innerText = questions[x].answers[2];
     four.innerText = questions[x].answers[3];
 
-    theQuestions.getChoice(choice) = getChoice;
+}
 
-    //This is supposed to get user input and compare it to the correct answer
-    function getChoice(choice) {
+//This collects the highscores and initals then puts them into an object
+function saveHighscore() {
+  var inputInitals = document.querySelector("#userInput").value;
+  console.log(inputInitals);
 
-        if(choice.innerText == questions[x].correct) {
-    
-          showCorrect();
-        }
-        else {
-    
-          showWrong();
-        }
-    
-    }
+  var userObject = {
+    initals: inputInitals,
+    score: timerCount
+  }
+  scoreInitals.push(userObject);
+  localStorage.setItem("score", JSON.stringify(scoreInitals));
+}
+
+//This gets user input and compare it to the correct answer
+function getChoice(event) {
+
+  if(event.target.innerHTML == questions[x].correct) {
+
+    showCorrect();
+  }
+  else {
+
+    showWrong();
+  }
 
 }
 
@@ -105,6 +124,7 @@ function showCorrect() {
 function showWrong() {
   choiceResult.innerText = "Wrong";
   x++;
+  timerCount = timerCount - 5;
 
   theQuestions();
 }
@@ -116,12 +136,24 @@ function startTimer() {
     timerCount--;
     timerElement.textContent = timerCount;
 
-    if (timerCount === 0) {
+    if (timerCount === 0 || x > questions.length - 1) {
 
       clearInterval(timer);
+
       endScreen();
     }
-  }, 7500);
+  
+
+  }, 1000);
+}
+
+//This starts the quiz everytime the start button is pressed
+function startBtn() {
+
+  timerCount = 100;
+  startTimer();
+  x = 0;
+  theQuestions();
 }
 
 //This is the end screen that hides everything else
